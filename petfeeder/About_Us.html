@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta namew="viewport" content="with=device-width, intitial scale=1.0">
+    <title>Smart Dog Feeder</title>
+    <link rel="stylesheet"href="stylesheet.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css">
+<style>
+    body{
+        font-family:"Lilita One", sans-serif;
+    }
+</style>
+
+</head>
+<body>
+<section class="header">
+        <nav>
+            <a href="index.html"><img src="images/logo.png.png"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-window-close" onclick="hideMenu()"></i>
+                 <ul>
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="Feed_Now.html">Feed Now</a></li>
+                    <li><a href="About_Us.html">About Us</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                 </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>    
+<div class="text-box">
+    <h1>The Smart Dog Feeder</h1>
+             <p> IoT-Enabled Automated Dog Feeding System. Feed your furry friend at home when you're away. Control and monitor your pet's meals in real-time.
+             </p>
+    <a href=""class="hero-btn">Visit us to know more</a>
+</div>
+</section>
+
+<!--- Feed Button --->
+
+<section class="home">
+     <div class="Feed_Button">
+        <h2>Feed Button</h2>
+        <h4>
+            This is a responsive feed button that connects to a system at home to feed your dogs, anytime and anywhere.
+        </h4>
+        <div class="center">
+            <button class= "puppy-button" onclick="requestFeed()">Feed Now!</button>
+            <p id="response"></p>
+        </div>
+</section>
+    <script>
+        function requestFeed() {
+            fetch('request_feed.php')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("response").innerText = data;
+                })
+                .catch(error => {
+                    document.getElementById("response").innerText = "Request failed miserably.";
+                });
+        }   
+    </script>
+</section>
+
+
+<!--- About --->
+
+<section class="About">
+    <h3>About Our Project</h3>
+    <p>
+        This is a responsive website with a feed button that connects to a system at home to feed your dogs, anytime and anywhere.
+        <br>This website also proposes a prototype system associated with the project mentioned.
+    </p>
+
+    <div class="row">
+        <div class="Purpose">
+            <h3>WHY?</h3>
+            <p> Our pet dogs deserve all the love even if we are away for a few hours. 
+                We want to promote animal care and provide a free sevice of dispensing food in your pet's bowls when you are away. 
+                With a click of a button and wifi connection, you can give all your love!</p> <br>
+
+        </div>
+        <div class="Purpose">
+            <h3>HOW?</h3>
+            <p> With the use of hard ware components like NODE MCU, servo motor SG90 we are able to build a prototype of this project.
+            </p>
+        </div>
+        <div class="Purpose">
+            <h3>WHAT?</h3>
+            <p> This is responsive website powering a home based system, that automaticallu dispenses food. 
+                <br>This system is for those who are frequently and temporarily away from home but want to ensure their dog is fed properly.</p>
+            </div>
+
+</section>
+
+
+<!----JavaScript for Toggle Menu----->
+
+  <script>
+    var navLinks = document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+  </script>
+
+  </body>
+  </html>
